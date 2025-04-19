@@ -8,8 +8,8 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <h1>Paradise Nursery</h1>
-      <div>
+      <h1 className="navbar-logo">Paradise Nursery</h1>
+      <div className="nav-links">
         <Link to="/">Home</Link>
         <Link to="/products">Products</Link>
         <Link to="/cart">

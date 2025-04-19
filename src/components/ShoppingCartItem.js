@@ -7,7 +7,7 @@ const ShoppingCartItem = ({ item }) => {
 
   return (
     <div className="cart-item">
-      <img src={item.image} alt={item.name} className="cart-item-img" />
+      <img src={item.image} alt={item.name} style={{ width: '150px', height: '150px', objectFit: 'cover' }} className="cart-item-img" />
       <div className="cart-item-details">
         <h3>{item.name}</h3>
         <p>${item.price} x {item.quantity}</p>
