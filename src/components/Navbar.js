@@ -19,18 +19,22 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
   return (
     <AppBar position="sticky" color="primary" elevation={3}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Typography
-          variant="h6"
-          component={Link}
-          to="/"
-          sx={{
-            color: "inherit",
-            textDecoration: "none",
-            fontWeight: 600,
-          }}
-        >
-          Paradise Nursery
-        </Typography>
+        <span className="navbar-logo">
+          <Typography
+            variant="h6"
+            component={Link}
+            to="/"
+            sx={{
+              color: "inherit",
+              textDecoration: "none",
+              fontWeight: 600,
+              display: "inline-block",
+              verticalAlign: "middle",
+            }}
+          >
+            Paradise Nursery
+          </Typography>
+        </span>
         <Box
           sx={{
             display: "flex",

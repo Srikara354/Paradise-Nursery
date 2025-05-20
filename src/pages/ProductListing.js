@@ -11,13 +11,13 @@ import FiddleLeafFig from "../assets/Fiddle leaf fig.jpeg";
 import JadePlant from "../assets/Jade plant.jpeg";
 import BostonFern from "../assets/Boston fern.jpeg";
 import Calathea from "../assets/Calathea.jpeg";
-import { Grid, Container, Typography } from "@mui/material";
+import { Grid, Container, Typography, Box } from "@mui/material";
 
 export const products = [
   {
     id: 1,
     name: "Aloe Vera",
-    price: 10,
+    price: 250,
     image: AloeVera,
     light: "bright",
     humidity: "low",
@@ -28,7 +28,7 @@ export const products = [
   {
     id: 2,
     name: "Snake Plant",
-    price: 15,
+    price: 400,
     image: SnakePlant,
     light: "low",
     humidity: "low",
@@ -39,7 +39,7 @@ export const products = [
   {
     id: 3,
     name: "Peace Lily",
-    price: 12,
+    price: 350,
     image: PeaceLily,
     light: "medium",
     humidity: "high",
@@ -50,7 +50,7 @@ export const products = [
   {
     id: 4,
     name: "Spider Plant",
-    price: 9,
+    price: 200,
     image: SpiderPlant,
     light: "bright",
     humidity: "medium",
@@ -61,7 +61,7 @@ export const products = [
   {
     id: 5,
     name: "Pothos",
-    price: 11,
+    price: 300,
     image: Pothos,
     light: "low",
     humidity: "medium",
@@ -72,7 +72,7 @@ export const products = [
   {
     id: 6,
     name: "ZZ Plant",
-    price: 14,
+    price: 600,
     image: ZZPlant,
     light: "low",
     humidity: "low",
@@ -83,7 +83,7 @@ export const products = [
   {
     id: 7,
     name: "Rubber Plant",
-    price: 16,
+    price: 700,
     image: RubberPlant,
     light: "bright",
     humidity: "high",
@@ -94,7 +94,7 @@ export const products = [
   {
     id: 8,
     name: "Fiddle Leaf Fig",
-    price: 18,
+    price: 1200,
     image: FiddleLeafFig,
     light: "bright",
     humidity: "high",
@@ -105,7 +105,7 @@ export const products = [
   {
     id: 9,
     name: "Jade Plant",
-    price: 13,
+    price: 350,
     image: JadePlant,
     light: "bright",
     humidity: "low",
@@ -116,7 +116,7 @@ export const products = [
   {
     id: 10,
     name: "Boston Fern",
-    price: 10,
+    price: 400,
     image: BostonFern,
     light: "medium",
     humidity: "high",
@@ -127,7 +127,7 @@ export const products = [
   {
     id: 11,
     name: "Calathea",
-    price: 17,
+    price: 500,
     image: Calathea,
     light: "low",
     humidity: "high",
@@ -141,14 +141,16 @@ const ProductListing = () => {
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <div className="product-listing-header">
-        <Typography
-          variant="h4"
-          fontWeight={700}
-          color="primary.main"
-          gutterBottom
-        >
-          Our Plants
-        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
+          <Typography
+            variant="h4"
+            fontWeight={700}
+            color="primary.main"
+            sx={{ flexGrow: 1 }}
+          >
+            Our Plants
+          </Typography>
+        </Box>
         <Typography
           variant="subtitle1"
           color="text.secondary"

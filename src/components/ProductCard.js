@@ -20,7 +20,7 @@ const ProductCard = ({ plant }) => {
       />
       <CardContent>
         <Typography variant="h6" fontWeight={600} gutterBottom>{plant.name}</Typography>
-        <Typography variant="subtitle1" color="text.secondary">₹{plant.price * 80}</Typography>
+        <Typography variant="subtitle1" color="text.secondary">₹{plant.price}</Typography>
       </CardContent>
       <CardActions sx={{ justifyContent: 'center', pb: 2 }}>
         <Button

@@ -336,6 +336,49 @@
   box-shadow: 0 1px 3px rgba(0,170,255,0.07);
 }
 
+/* --- Modern animated gradient background --- */
+body {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+  animation: gradientBG 12s ease-in-out infinite alternate;
+}
+
+@keyframes gradientBG {
+  0% {
+    background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+  }
+  100% {
+    background: linear-gradient(120deg, #f5f7fa 0%, #c3cfe2 100%);
+  }
+}
+
+/* --- Glassmorphism utility --- */
+.glass {
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* --- Card and button hover/transition enhancements --- */
+.MuiCard-root, .MuiButton-root {
+  transition: box-shadow 0.3s cubic-bezier(.4,2,.6,1), transform 0.2s cubic-bezier(.4,2,.6,1);
+}
+
+/* --- Decorative SVG animation --- */
+.animated-plant {
+  width: 90px;
+  margin: 0 auto 18px auto;
+  display: block;
+  animation: plantWiggle 2.5s infinite ease-in-out alternate;
+}
+@keyframes plantWiggle {
+  0% { transform: rotate(-2deg) scale(1); }
+  100% { transform: rotate(2deg) scale(1.04); }
+}
+
 /* Dark mode styles */
 .dark-mode {
   background: linear-gradient(135deg, #232526 0%, #414345 100%);
@@ -380,6 +423,63 @@
 }
 .dark-mode .remove-btn:hover {
   background: #7f0000;
+}
+/* --- Improved dark mode for better visibility --- */
+.dark-mode .MuiCard-root,
+.dark-mode .glass,
+.dark-mode .product-listing-header,
+.dark-mode .product-listing-sub,
+.dark-mode .cart,
+.dark-mode .cart-item-details,
+.dark-mode .MuiTypography-root,
+.dark-mode .MuiButton-root,
+.dark-mode .MuiInputBase-root,
+.dark-mode .MuiFormLabel-root,
+.dark-mode .MuiSelect-select,
+.dark-mode .MuiOutlinedInput-notchedOutline,
+.dark-mode .MuiInputLabel-root,
+.dark-mode .MuiListItemText-root,
+.dark-mode .MuiListItemIcon-root {
+  color: #e0eafc !important;
+  background: none !important;
+}
+.dark-mode .MuiCard-root,
+.dark-mode .glass {
+  background: #232526cc !important;
+}
+.dark-mode .MuiInputBase-root,
+.dark-mode .MuiOutlinedInput-notchedOutline {
+  background: #232526 !important;
+  color: #e0eafc !important;
+}
+.dark-mode textarea,
+.dark-mode input,
+.dark-mode select {
+  background: #232526 !important;
+  color: #e0eafc !important;
+}
+.dark-mode .MuiFormLabel-root,
+.dark-mode .MuiInputLabel-root {
+  color: #b2dfdb !important;
+}
+.dark-mode .MuiButton-root {
+  color: #e0eafc !important;
+}
+.dark-mode .MuiButton-containedPrimary {
+  background: #388e3c !important;
+}
+.dark-mode .MuiButton-containedPrimary:hover {
+  background: #43a047 !important;
+}
+.dark-mode .MuiButton-containedSecondary {
+  background: #0288d1 !important;
+}
+.dark-mode .MuiButton-containedSecondary:hover {
+  background: #039be5 !important;
+}
+.dark-mode .MuiTypography-caption,
+.dark-mode .MuiTypography-body2 {
+  color: #b2dfdb !important;
 }
 
 @keyframes App-logo-spin {

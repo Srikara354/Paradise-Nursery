@@ -51,9 +51,11 @@ const CareGuide = () => {
               sx={{ width: 180, height: 180, objectFit: 'cover', borderRadius: 3, mb: 2, border: '3px solid #b2dfdb' }}
             />
           )}
-          <Typography variant="h4" fontWeight={700} color="primary.main" gutterBottom>
-            {plantName} Care Guide
-          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+            <Typography variant="h4" fontWeight={700} color="primary.main" sx={{ flexGrow: 1 }}>
+              Plant Care Guide
+            </Typography>
+          </Box>
         </Box>
         <List>
           {tips.map((tip, idx) => (

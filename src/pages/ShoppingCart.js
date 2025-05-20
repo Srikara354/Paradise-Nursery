@@ -7,7 +7,6 @@ import CloseIcon from '@mui/icons-material/Close';
 const SHIPPING_OPTIONS = [
   { label: "Standard (₹100)", value: 100 },
   { label: "Express (₹250)", value: 250 },
-  { label: "Free Pickup (₹0)", value: 0 },
 ];
 const PROMO_CODES = { SAVE10: 0.1, PLANT5: 0.05 };
 
@@ -52,9 +51,11 @@ const ShoppingCart = () => {
   return (
     <Box sx={{ maxWidth: 800, mx: "auto", mt: 4, position: 'relative' }}>
       <Paper elevation={4} sx={{ p: 3, borderRadius: 3 }}>
-        <Typography variant="h4" fontWeight={700} color="primary.main" gutterBottom>
-          Shopping Cart
-        </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+          <Typography variant="h4" fontWeight={700} color="primary.main" sx={{ flexGrow: 1 }}>
+            Your Shopping Cart
+          </Typography>
+        </Box>
         <FormControlLabel
           control={<Switch checked={isGuest} onChange={() => setIsGuest(!isGuest)} color="primary" />}
           label={isGuest ? "Guest Checkout" : "Login Required"}
@@ -101,10 +102,10 @@ const ShoppingCart = () => {
               </TextField>
             </Box>
             <Box sx={{ textAlign: 'right', mb: 2 }}>
-              <Typography>Subtotal: ₹{subtotal * 80}</Typography>
-              {discount > 0 && <Typography color="success.main">Discount: -₹{discountAmount * 80}</Typography>}
-              <Typography>Shipping: ₹{shipping * 80}</Typography>
-              <Typography variant="h6" fontWeight={600}>Grand Total: ₹{grandTotal * 80}</Typography>
+              <Typography>Subtotal: ₹{subtotal}</Typography>
+              {discount > 0 && <Typography color="success.main">Discount: -₹{discountAmount}</Typography>}
+              <Typography>Shipping: ₹{shipping}</Typography>
+              <Typography variant="h6" fontWeight={600}>Grand Total: ₹{grandTotal}</Typography>
             </Box>
             <Button
               variant="contained"
@@ -135,14 +136,14 @@ const ShoppingCart = () => {
                     <Tooltip title={<img src={item.image} alt={item.name} width={120} />} placement="left">
                       <Typography fontWeight={600}>{item.name} x {item.quantity}</Typography>
                     </Tooltip>
-                    <Typography variant="body2">₹{item.price * 80} each</Typography>
+                    <Typography variant="body2">₹{item.price} each</Typography>
                   </Box>
                 ))}
                 <Divider sx={{ my: 2 }} />
-                <Typography>Subtotal: ₹{subtotal * 80}</Typography>
-                {discount > 0 && <Typography color="success.main">Discount: -₹{discountAmount * 80}</Typography>}
-                <Typography>Shipping: ₹{shipping * 80}</Typography>
-                <Typography variant="h6" fontWeight={600}>Grand Total: ₹{grandTotal * 80}</Typography>
+                <Typography>Subtotal: ₹{subtotal}</Typography>
+                {discount > 0 && <Typography color="success.main">Discount: -₹{discountAmount}</Typography>}
+                <Typography>Shipping: ₹{shipping}</Typography>
+                <Typography variant="h6" fontWeight={600}>Grand Total: ₹{grandTotal}</Typography>
                 <Button
                   variant="contained"
                   color="success"

@@ -48,7 +48,7 @@ const ShoppingCartItem = ({ item, preview, notes }) => {
       <Box sx={{ flex: 1 }}>
         <CardContent sx={{ pb: 1 }}>
           <Typography variant="subtitle1" fontWeight={600}>{item.name}</Typography>
-          <Typography variant="body2" color="text.secondary">₹{item.price * 80} x {item.quantity} = ₹{item.price * item.quantity * 80}</Typography>
+          <Typography variant="body2" color="text.secondary">₹{item.price} x {item.quantity} = ₹{item.price * item.quantity}</Typography>
           {notes && (
             <TextField
               label="Add note"
