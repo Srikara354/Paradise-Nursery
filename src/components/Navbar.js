@@ -52,13 +52,6 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
           >
             Products
           </Button>
-          <Button
-            color="inherit"
-            component={Link}
-            to="/compatibility"
-          >
-            Compatibility Checker
-          </Button>
           <IconButton
             color="inherit"
             component={Link}

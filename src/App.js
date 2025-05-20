@@ -5,6 +5,7 @@ import ProductListing from "./pages/ProductListing";
 import ShoppingCart from "./pages/ShoppingCart";
 import CareGuide from "./pages/CareGuide";
 import PlantCompatibilityChecker from "./pages/PlantCompatibilityChecker";
+import Checkout from "./pages/Checkout";
 import Navbar from "./components/Navbar";
 import "./App.css";
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/cart" element={<ShoppingCart />} />
         <Route path="/care/:plantName" element={<CareGuide />} />
         <Route path="/compatibility" element={<PlantCompatibilityChecker />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </div>
   );
