@@ -7,7 +7,6 @@ import OpacityIcon from '@mui/icons-material/Opacity';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import FormatSizeIcon from '@mui/icons-material/FormatSize';
 import WaterDropIcon from '@mui/icons-material/WaterDrop';
-import axios from "axios";
 
 const PlantCompatibilityChecker = () => {
   const [light, setLight] = useState("");
@@ -17,11 +16,8 @@ const PlantCompatibilityChecker = () => {
   const [petFriendly, setPetFriendly] = useState(false);
   const [filtered, setFiltered] = useState([]);
   const [submitted, setSubmitted] = useState(false);
-  const [globalSuggestions, setGlobalSuggestions] = useState([]);
-  const [loadingAI, setLoadingAI] = useState(false);
-  const [aiError, setAIError] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setFiltered(
       products.filter(
@@ -34,42 +30,6 @@ const PlantCompatibilityChecker = () => {
       )
     );
     setSubmitted(true);
-    setLoadingAI(true);
-    setAIError("");
-    setGlobalSuggestions([]);
-    try {
-      // Replace with your AI API endpoint and key
-      const prompt = `Suggest 5 houseplants from around the world that match these conditions: light=${light||'any'}, humidity=${humidity||'any'}, size=${size||'any'}, watering=${watering||'any'}, petFriendly=${petFriendly}. Return only a JSON array of plant names.`;
-      const response = await axios.post(
-        "https://api.openai.com/v1/chat/completions",
-        {
-          model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: prompt }],
-          max_tokens: 100,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
-          },
-        }
-      );
-      // Try to parse the AI response as a JSON array
-      let plantNames = [];
-      try {
-        plantNames = JSON.parse(response.data.choices[0].message.content);
-      } catch {
-        // fallback: extract lines
-        plantNames = response.data.choices[0].message.content
-          .split("\n")
-          .map((l) => l.replace(/^\d+\.\s*/, "").trim())
-          .filter(Boolean);
-      }
-      setGlobalSuggestions(plantNames);
-    } catch (err) {
-      setAIError("Could not fetch global plant suggestions.");
-    }
-    setLoadingAI(false);
   };
 
   return (
@@ -156,41 +116,6 @@ const PlantCompatibilityChecker = () => {
               filtered.map((plant) => <ProductCard key={plant.id} plant={plant} />)
             )}
           </div>
-          <Box sx={{ mt: 4 }}>
-            <Typography variant="h6" gutterBottom>Global Plant Suggestions</Typography>
-            {loadingAI && <Typography>Loading suggestions...</Typography>}
-            {aiError && (
-              <Typography color="error" sx={{ textAlign: 'center', width: '100%' }}>
-                Could not fetch global plant suggestions. Here are some popular houseplants you can consider:
-                <ul style={{ textAlign: 'left', margin: '8px 0 0 0', paddingLeft: 20 }}>
-                  <li>Monstera Deliciosa</li>
-                  <li>Philodendron</li>
-                  <li>Rubber Plant</li>
-                  <li>Spider Plant</li>
-                  <li>Peace Lily</li>
-                </ul>
-              </Typography>
-            )}
-            {!loadingAI && !aiError && globalSuggestions.length > 0 && (
-              <Grid container spacing={2}>
-                {globalSuggestions.map((name, idx) => {
-                  const local = products.find((p) => p.name.toLowerCase() === name.toLowerCase());
-                  return (
-                    <Grid item xs={12} sm={6} md={4} key={name+idx}>
-                      {local ? (
-                        <ProductCard plant={local} />
-                      ) : (
-                        <Card sx={{ p: 2, borderRadius: 2, minHeight: 120, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                          <Typography variant="subtitle1" fontWeight={600}>{name}</Typography>
-                          <Button variant="outlined" color="secondary" sx={{ mt: 2 }}>Notify me when available</Button>
-                        </Card>
-                      )}
-                    </Grid>
-                  );
-                })}
-              </Grid>
-            )}
-          </Box>
         </Box>
       )}
     </div>
