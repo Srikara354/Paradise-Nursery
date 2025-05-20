@@ -69,7 +69,8 @@
 
 .product-listing {
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Stack header above products */
+  align-items: center;
   padding: 20px;
 }
 
@@ -84,6 +85,26 @@
   font-family: 'Poppins', sans-serif;
   color: #1a1a1a;
   margin-bottom: 20px;
+}
+
+.product-listing-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.product-listing-header h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.3em;
+  color: #228b22;
+  letter-spacing: 1px;
+}
+
+.product-listing-sub {
+  color: #555;
+  font-size: 1.1rem;
+  margin: 0 auto 10px auto;
+  font-family: 'Poppins', sans-serif;
 }
 
 .cart {
@@ -255,6 +276,110 @@
 .nav-links a:hover {
   color: #ffeb3b;
   transform: scale(1.1);
+}
+
+.care-guide-card {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f5f7fa 100%);
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(34,139,34,0.10), 0 1.5px 4px rgba(0,0,0,0.07);
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 32px 28px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.care-guide-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.care-guide-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(34,139,34,0.13);
+  margin-bottom: 18px;
+  border: 3px solid #b2dfdb;
+}
+
+.care-guide-title {
+  font-size: 2rem;
+  color: #228b22;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 0;
+  text-shadow: 0 2px 8px #e0f2f1;
+}
+
+.care-guide-list {
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
+  padding-left: 1.2em;
+  font-size: 1.13rem;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.7;
+}
+
+.care-guide-list li {
+  margin-bottom: 0.7em;
+  padding-left: 0.2em;
+  border-left: 3px solid #00aaff; /* Changed to site accent color */
+  background: #e6f7ff; /* Light blue background */
+  border-radius: 6px;
+  padding: 8px 12px;
+  box-shadow: 0 1px 3px rgba(0,170,255,0.07);
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+}
+.dark-mode .App-header,
+.dark-mode .product-card,
+.dark-mode .cart-item {
+  background: #232526;
+  color: #f5f7fa;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.dark-mode .navbar {
+  background: linear-gradient(90deg, #232526 0%, #414345 100%);
+}
+.dark-mode .navbar-logo,
+.dark-mode .nav-links a {
+  color: #f5f7fa;
+}
+.dark-mode .nav-links a:hover {
+  color: #ffeb3b;
+}
+.dark-mode .home-highlights h2,
+.dark-mode .product-listing h2,
+.dark-mode .cart h2 {
+  color: #f5f7fa;
+}
+.dark-mode .home-description,
+.dark-mode .home-callout {
+  color: #cccccc;
+}
+.dark-mode .home-button,
+.dark-mode .cart-controls button {
+  background: #333;
+  color: #f5f7fa;
+}
+.dark-mode .home-button:hover,
+.dark-mode .cart-controls button:hover {
+  background: #555;
+}
+.dark-mode .remove-btn {
+  background: #b71c1c;
+}
+.dark-mode .remove-btn:hover {
+  background: #7f0000;
 }
 
 @keyframes App-logo-spin {
