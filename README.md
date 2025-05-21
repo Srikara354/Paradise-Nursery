@@ -1,12 +1,12 @@
 
-### 🌿 Paradise Nursery 🛒  
+##### 🌿 Paradise Nursery 🛒  
 Your Digital Garden Companion
 
 Welcome to **Paradise Nursery** — an all-in-one platform for plant lovers! Whether you're looking to green up your space 🌱 or connect with a community of fellow plant parents 🧑‍🌾, we've got you covered. Explore, shop, learn, and grow — all in one place. 🌼
 
 ---
 
-## ✨ Features
+#### ✨ Features
 
 ### 🏠 Landing Page
 - **🌟 Brand Identity**: Eye-catching banner with name and tagline.
