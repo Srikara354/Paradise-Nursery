@@ -123,12 +123,6 @@ Visit: [http://localhost:3000](http://localhost:3000) to explore the app! 🌐
 
 ---
 
-## 📜 License
-
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for more details.
-
----
-
 ## 🌱 Let’s Grow Together
 
 Join us in nurturing a greener world — one plant at a time! 💚
